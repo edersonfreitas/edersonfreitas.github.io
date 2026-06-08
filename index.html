@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ederson Freitas Santos — Analista de Suporte TI</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --azul:     #1E3A5F;
+    --azul-med: #2E5D8E;
+    --azul-clr: #D6E4F0;
+    --azul-lt:  #EBF3FB;
+    --text:     #1A1A2E;
+    --muted:    #64748B;
+    --border:   #E2E8F0;
+    --bg:       #F8FAFC;
+    --white:    #FFFFFF;
+    --green:    #16A34A;
+    --green-lt: #DCFCE7;
+    --amber:    #B45309;
+    --amber-lt: #FEF3C7;
+    --radius:   10px;
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+  a { color: inherit; text-decoration: none; }
+
+  /* HERO */
+  .hero { background: var(--azul); color: white; padding: 2.5rem 2rem 2rem; }
+  .hero-inner { max-width: 860px; margin: 0 auto; display: flex; gap: 1.75rem; align-items: flex-start; flex-wrap: wrap; }
+  .hero-photo { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid rgba(255,255,255,0.25); flex-shrink: 0; background: #2E5D8E; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 600; color: #B8D4F0; }
+  .hero-photo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+  .hero-info { flex: 1; min-width: 240px; }
+  .hero-name { font-size: 26px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
+  .hero-role { font-size: 14px; color: #B8D4F0; margin-bottom: 14px; line-height: 1.5; }
+  .hero-contacts { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+  .hero-contacts a { font-size: 12px; color: #B8D4F0; display: flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.1); padding: 5px 12px; border-radius: 20px; transition: background 0.2s; }
+  .hero-contacts a:hover { background: rgba(255,255,255,0.2); color: white; }
+  .badge-open { display: inline-flex; align-items: center; gap: 5px; background: #DCFCE7; color: #166534; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
+
+  /* LAYOUT */
+  .main { max-width: 860px; margin: 0 auto; padding: 2rem 1.25rem; display: grid; grid-template-columns: 1fr 280px; gap: 1.5rem; }
+  @media (max-width: 640px) { .main { grid-template-columns: 1fr; } }
+
+  /* CARDS */
+  .card { background: var(--white); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; }
+  .section-title { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: flex; align-items: center; gap: 6px; }
+  .section-title i { font-size: 14px; color: var(--azul-med); }
+
+  /* SOBRE */
+  .about-text { font-size: 13.5px; color: var(--muted); line-height: 1.75; }
+
+  /* SKILLS por nível */
+  .skill-group { margin-bottom: 1rem; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-level { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+  .skill-level-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-adv { background: #1E3A5F; }
+  .dot-int { background: #2E5D8E; }
+  .dot-bas { background: #B8D4F0; }
+  .skill-level-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .stag { font-size: 12px; padding: 3px 10px; border-radius: 20px; font-weight: 500; }
+  .stag-adv { background: #1E3A5F; color: white; }
+  .stag-int { background: var(--azul-clr); color: #0C447C; }
+  .stag-bas { background: var(--bg); color: var(--muted); border: 0.5px solid var(--border); }
+
+  /* IDIOMA */
+  .lang-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .lang-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .lang-level { font-size: 11px; color: var(--muted); }
+  .lang-dots { display: flex; gap: 4px; }
+  .lang-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .lang-dot.filled { background: var(--azul); }
+  .lang-dot.empty { background: var(--border); }
+
+  /* CERTIFICAÇÕES */
+  .cert-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 0.5px solid var(--border); }
+  .cert-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .cert-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+  .cert-icon.aws { background: #FEF3C7; color: #B45309; }
+  .cert-icon.ms { background: #EBF3FB; color: #185FA5; }
+  .cert-info { flex: 1; }
+  .cert-name { font-size: 13px; font-weight: 600; color: var(--text); }
+  .cert-issuer { font-size: 11px; color: var(--muted); }
+  .cert-badge { font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 20px; }
+  .cert-badge.active { background: var(--green-lt); color: #166534; }
+  .cert-badge.base { background: var(--amber-lt); color: var(--amber); }
+
+  /* EXPERIÊNCIA */
+  .job { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--border); }
+  .job:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .job-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+  .job-title { font-size: 14px; font-weight: 700; color: var(--text); }
+  .job-period { font-size: 11px; color: white; background: var(--azul-med); padding: 2px 10px; border-radius: 20px; white-space: nowrap; }
+  .job-company { font-size: 12px; color: var(--azul-med); font-weight: 600; margin: 3px 0 8px; }
+  .job-bullets { list-style: none; }
+  .job-bullets li { font-size: 13px; color: var(--muted); padding: 3px 0 3px 14px; position: relative; line-height: 1.5; }
+  .job-bullets li::before { content: "▸"; position: absolute; left: 0; color: var(--azul-med); font-size: 10px; top: 5px; }
+  .job-bullets li.hl { color: var(--text); font-weight: 600; }
+  .job-bullets li.hl::before { color: var(--green); }
+
+  /* FORMAÇÃO */
+  .edu-item { display: flex; gap: 12px; align-items: flex-start; }
+  .edu-icon { width: 38px; height: 38px; background: var(--azul-lt); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--azul-med); font-size: 20px; flex-shrink: 0; }
+  .edu-title { font-size: 13px; font-weight: 700; color: var(--text); }
+  .edu-school { font-size: 12px; color: var(--azul-med); }
+  .edu-period { font-size: 11px; color: var(--muted); }
+
+  /* CTA */
+  .cta { background: var(--azul); color: white; border-radius: var(--radius); padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; }
+  .cta-text strong { display: block; font-size: 15px; margin-bottom: 2px; }
+  .cta-text span { font-size: 13px; color: #B8D4F0; }
+  .cta-btn { display: inline-flex; align-items: center; gap: 6px; background: #25D366; color: white; font-size: 13px; font-weight: 700; padding: 10px 20px; border-radius: 24px; border: none; cursor: pointer; transition: opacity 0.2s; text-decoration: none; }
+  .cta-btn:hover { opacity: 0.9; }
+  .cta-btn i { font-size: 18px; }
+
+  /* SIDEBAR STICKY */
+  .sidebar { position: sticky; top: 1.5rem; height: fit-content; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo" id="photoWrap">EF</div>
+    <div class="hero-info">
+      <div class="hero-name">Ederson Freitas Santos</div>
+      <div class="hero-role">Analista de Suporte TI &nbsp;·&nbsp; Service Desk &nbsp;·&nbsp; Help Desk N1/N2<br>Windows · VMware · Hyper-V · Active Directory · Redes</div>
+      <div class="hero-contacts">
+        <a href="#"><i class="ti ti-map-pin"></i> São Paulo, SP</a>
+        <a href="tel:11976399233"><i class="ti ti-phone"></i> (11) 97639-9233</a>
+        <a href="mailto:santosederson84@gmail.com"><i class="ti ti-mail"></i> santosederson84@gmail.com</a>
+        <a href="https://linkedin.com/in/ederson-freitas-ti" target="_blank" style="background:#0A66C2;color:white;font-weight:700"><i class="ti ti-brand-linkedin"></i> LinkedIn</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span class="badge-open"><i class="ti ti-circle-check" style="font-size:13px"></i> Disponível para novas oportunidades</span><a href="https://wa.me/5511976399233?text=Olá+Ederson,+vi+seu+portfólio+e+gostaria+de+conversar+sobre+uma+oportunidade+em+TI" target="_blank" style="display:inline-flex;align-items:center;gap:5px;background:#25D366;color:white;font-size:12px;font-weight:700;padding:5px 14px;border-radius:20px;text-decoration:none"><i class="ti ti-brand-whatsapp" style="font-size:15px"></i> Chamar no WhatsApp</a></div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- COLUNA PRINCIPAL -->
+  <div>
+
+    <div class="card">
+      <div class="section-title"><i class="ti ti-user"></i> Perfil profissional</div>
+      <p class="about-text">Analista de Suporte TI com 15 anos de experiência resolvendo problemas antes que virem crise. Especializado em suporte N1/N2, ambientes Windows, virtualização VMware e Hyper-V, redes e infraestrutura corporativa. Reconhecido pela agilidade no diagnóstico, clareza na comunicação com usuários e compromisso com SLA. Promovido internamente na Mundoopen após construir base técnica sólida em virtualização e gerenciamento de RAID em servidores corporativos.</p>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><i class="ti ti-target"></i> Oportunidades que busco</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+
+        <div style="background:#EBF3FB;border:0.5px solid #B5D4F4;border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+          <div style="width:38px;height:38px;background:#1E3A5F;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="ti ti-headset" style="color:white;font-size:20px"></i>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#0C447C;margin-bottom:3px">Analista de Suporte Pleno / Sênior</div>
+            <div style="font-size:12px;color:#185FA5;line-height:1.5">Help Desk N1/N2, SLA, atendimento corporativo e VIPs</div>
+          </div>
+        </div>
+
+        <div style="background:#EBF3FB;border:0.5px solid #B5D4F4;border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+          <div style="width:38px;height:38px;background:#2E5D8E;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="ti ti-server" style="color:white;font-size:20px"></i>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#0C447C;margin-bottom:3px">Analista de Infraestrutura</div>
+            <div style="font-size:12px;color:#185FA5;line-height:1.5">VMware, Hyper-V, Windows Server, RAID, redes corporativas</div>
+          </div>
+        </div>
+
+        <div style="background:#EBF3FB;border:0.5px solid #B5D4F4;border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+          <div style="width:38px;height:38px;background:#185FA5;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="ti ti-users" style="color:white;font-size:20px"></i>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#0C447C;margin-bottom:3px">Administrador de Sistemas Windows</div>
+            <div style="font-size:12px;color:#185FA5;line-height:1.5">Active Directory, GPO, Microsoft 365, Exchange Server</div>
+          </div>
+        </div>
+
+        <div style="background:#EBF3FB;border:0.5px solid #B5D4F4;border-radius:10px;padding:14px 16px;display:flex;gap:12px;align-items:flex-start">
+          <div style="width:38px;height:38px;background:#0C447C;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="ti ti-device-desktop-analytics" style="color:white;font-size:20px"></i>
+          </div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:#0C447C;margin-bottom:3px">Analista de Service Desk</div>
+            <div style="font-size:12px;color:#185FA5;line-height:1.5">ITIL, gestão de chamados, suporte remoto e presencial</div>
+          </div>
+        </div>
+
+      </div>
+      <div style="margin-top:12px;padding:10px 14px;background:#F0F7FF;border-radius:8px;display:flex;align-items:center;gap:8px">
+        <i class="ti ti-map-pin" style="font-size:15px;color:#2E5D8E;flex-shrink:0"></i>
+        <span style="font-size:12px;color:#185FA5">Disponível para regime <strong>CLT</strong> ou <strong>PJ</strong> · Presencial, híbrido ou remoto · São Paulo e Grande SP</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><i class="ti ti-briefcase"></i> Experiência profissional</div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Analista de Suporte II</span>
+          <span class="job-period">ago/2024 – mar/2026</span>
+        </div>
+        <div class="job-company"><i class="ti ti-building" style="font-size:12px;vertical-align:-1px"></i> Ilha Service Tecnologia e Serviços · São Paulo, SP</div>
+        <ul class="job-bullets">
+          <li>Suporte presencial e remoto a usuários finais, incluindo atendimento prioritário a executivos (VIPs)</li>
+          <li>Instalação, configuração e manutenção de desktops, notebooks, impressoras e periféricos corporativos</li>
+          <li>Administração de usuários e grupos no Active Directory — criação, modificação e controle de acessos</li>
+          <li>Diagnóstico e resolução de incidentes de hardware, software e rede com foco em SLA</li>
+          <li>Suporte a Microsoft 365 e ferramentas de produtividade corporativa</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Analista de Suporte II</span>
+          <span class="job-period">ago/2017 – abr/2024</span>
+        </div>
+        <div class="job-company"><i class="ti ti-building" style="font-size:12px;vertical-align:-1px"></i> Mundoopen Tecnologia · São Paulo, SP · <strong style="color:#166534">6 anos e 9 meses</strong></div>
+        <ul class="job-bullets">
+          <li>Suporte N1/N2 em Windows, Office e aplicativos corporativos com foco em continuidade operacional</li>
+          <li>Administração de ambientes virtualizados VMware vSphere e Microsoft Hyper-V — criação e gestão de VMs</li>
+          <li>Configuração e manutenção de volumes RAID 0, 1 e 5 em servidores corporativos</li>
+          <li>Redução do tempo de resolução por diagnósticos precisos e documentação de procedimentos</li>
+          <li class="hl">✦ Promovido de Auxiliar para Analista II — reconhecimento pelo desenvolvimento técnico consistente</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Técnico de Informática</span>
+          <span class="job-period">fev/2016 – ago/2017</span>
+        </div>
+        <div class="job-company"><i class="ti ti-building" style="font-size:12px;vertical-align:-1px"></i> Assisnet Soluções de Informática · São Paulo, SP</div>
+        <ul class="job-bullets">
+          <li>Monitoramento de servidores Windows e identificação proativa de incidentes</li>
+          <li>Troubleshooting de DHCP, DNS, Active Directory e File Server em ambiente corporativo</li>
+          <li>Suporte a firewall SonicWall, backup corporativo com Backup Exec e Exchange Server</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Analista de Suporte Técnico</span>
+          <span class="job-period">fev/2014 – set/2015</span>
+        </div>
+        <div class="job-company"><i class="ti ti-building" style="font-size:12px;vertical-align:-1px"></i> Grupo Cimcorp · São Paulo, SP</div>
+        <ul class="job-bullets">
+          <li>Suporte a ERP corporativo, Lotus Notes, TCP/IP e atendimento N1/N2 com SLA</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Analista de Suporte Júnior</span>
+          <span class="job-period">jul/2012 – dez/2013</span>
+        </div>
+        <div class="job-company"><i class="ti ti-building" style="font-size:12px;vertical-align:-1px"></i> Universal Saúde Assistência Médica · São Paulo, SP</div>
+        <ul class="job-bullets">
+          <li>Suporte presencial, remoto e telefônico com AD, redes, ERP e cabeamento estruturado</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <div class="section-title"><i class="ti ti-school"></i> Formação acadêmica</div>
+      <div class="edu-item">
+        <div class="edu-icon"><i class="ti ti-certificate"></i></div>
+        <div>
+          <div class="edu-title">Tecnólogo em Sistemas da Informação</div>
+          <div class="edu-school">Estácio de Sá</div>
+          <div class="edu-period">2003 – 2005 · São Paulo, SP</div>
+        </div>
+      </div>
+    </div>
+
+    <a class="cta" href="https://wa.me/5511976399233?text=Olá+Ederson,+vi+seu+portfólio+e+gostaria+de+conversar+sobre+uma+oportunidade+em+TI" target="_blank">
+      <div class="cta-text">
+        <strong>Vamos conversar?</strong>
+        <span>Aberto a oportunidades em Suporte TI, Help Desk N1/N2 e Service Desk</span>
+      </div>
+      <div class="cta-btn"><i class="ti ti-brand-whatsapp"></i> Chamar no WhatsApp</div>
+    </a>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="card">
+      <div class="section-title"><i class="ti ti-tools"></i> Competências técnicas</div>
+
+      <div class="skill-group">
+        <div class="skill-level">
+          <div class="lang-dot filled" style="width:10px;height:10px;border-radius:50%;background:#1E3A5F;flex-shrink:0"></div>
+          <span class="skill-level-label">Avançado</span>
+        </div>
+        <div class="skill-tags">
+          <span class="stag stag-adv">Windows 7–11</span>
+          <span class="stag stag-adv">Windows Server</span>
+          <span class="stag stag-adv">Active Directory</span>
+          <span class="stag stag-adv">VMware vSphere</span>
+          <span class="stag stag-adv">Hyper-V</span>
+          <span class="stag stag-adv">Suporte N1/N2</span>
+          <span class="stag stag-adv">SLA / Service Desk</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="margin-top:12px">
+        <div class="skill-level">
+          <div class="lang-dot filled" style="width:10px;height:10px;border-radius:50%;background:#2E5D8E;flex-shrink:0"></div>
+          <span class="skill-level-label">Intermediário</span>
+        </div>
+        <div class="skill-tags">
+          <span class="stag stag-int">RAID 0/1/5</span>
+          <span class="stag stag-int">TCP/IP · DHCP · DNS</span>
+          <span class="stag stag-int">Microsoft 365</span>
+          <span class="stag stag-int">Exchange Server</span>
+          <span class="stag stag-int">SonicWall</span>
+          <span class="stag stag-int">Backup Exec</span>
+          <span class="stag stag-int">ERP Corporativo</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="margin-top:12px">
+        <div class="skill-level">
+          <div class="lang-dot empty" style="width:10px;height:10px;border-radius:50%;background:#B8D4F0;flex-shrink:0"></div>
+          <span class="skill-level-label">Básico / em evolução</span>
+        </div>
+        <div class="skill-tags">
+          <span class="stag stag-bas">Linux</span>
+          <span class="stag stag-bas">SQL Server</span>
+          <span class="stag stag-bas">AWS Cloud</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><i class="ti ti-award"></i> Certificações</div>
+      <div class="cert-item">
+        <div class="cert-icon ms"><i class="ti ti-settings"></i></div>
+        <div class="cert-info">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:4px">
+            <div class="cert-name">ITIL 5 Foundation</div>
+            <span class="cert-badge active">2026</span>
+          </div>
+          <div class="cert-issuer">PeopleCert · Gestão de Serviços TI</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-info">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:4px">
+            <div class="cert-name">AWS Cloud Practitioner</div>
+            <span class="cert-badge base">CLF-C01</span>
+          </div>
+          <div class="cert-issuer">Amazon Web Services</div>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon ms"><i class="ti ti-brand-windows"></i></div>
+        <div class="cert-info">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:4px">
+            <div class="cert-name">Microsoft 365</div>
+            <span class="cert-badge active">Ativo</span>
+          </div>
+          <div class="cert-issuer">Microsoft · Office 365</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title"><i class="ti ti-language"></i> Idiomas</div>
+
+      <div class="lang-row" style="margin-bottom:14px">
+        <div>
+          <div class="lang-name">Português</div>
+          <div class="lang-level">Nativo</div>
+        </div>
+        <div class="lang-dots">
+          <div class="lang-dot filled"></div>
+          <div class="lang-dot filled"></div>
+          <div class="lang-dot filled"></div>
+          <div class="lang-dot filled"></div>
+          <div class="lang-dot filled"></div>
+        </div>
+      </div>
+
+      <div class="lang-row">
+        <div>
+          <div class="lang-name">Inglês</div>
+          <div class="lang-level">Técnico / Leitura</div>
+        </div>
+        <div class="lang-dots">
+          <div class="lang-dot filled"></div>
+          <div class="lang-dot filled"></div>
+          <div class="lang-dot filled"></div>
+          <div class="lang-dot empty"></div>
+          <div class="lang-dot empty"></div>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+</main>
+
+<script>
+  const photo = document.getElementById('photoWrap');
+  const img = new Image();
+  img.onload = function() {
+    photo.innerHTML = '';
+    const el = document.createElement('img');
+    el.src = img.src;
+    el.alt = 'Ederson Freitas Santos';
+    photo.appendChild(el);
+  };
+  img.src = 'https://i.ibb.co/4RmbwZCS/ederson-freitas-analista-suporte-ti.jpg';
+</script>
+</body>
+</html>
