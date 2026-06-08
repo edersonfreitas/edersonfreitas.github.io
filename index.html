@@ -282,6 +282,75 @@
       </div>
     </div>
 
+    <div class="card">
+      <div class="section-title"><i class="ti ti-bulb"></i> Dicas de campo — situações reais</div>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:1rem;line-height:1.5">Situações que vivi em produção e o que aprendi com cada uma.</p>
+
+      <!-- POST 1 -->
+      <div style="border:0.5px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:32px;height:32px;background:#FEE2E2;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="ti ti-alert-circle" style="color:#DC2626;font-size:17px"></i>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:var(--text)">Serviço crítico derrubando a operação inteira</div>
+        </div>
+        <p style="font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:10px">O chamado chegou assim: <em>"nada está funcionando."</em> Após o diagnóstico, identifiquei que um serviço essencial havia parado dentro de uma máquina virtual Hyper-V sem documentação. Mapeei o ambiente, localizei a VM, identifiquei o serviço travado via Gerenciador do Windows, reiniciei de forma controlada validando dependências e confirmei a retomada com o cliente.</p>
+        <div style="background:var(--azul-lt);border-left:3px solid var(--azul-med);padding:8px 12px;border-radius:0 6px 6px 0">
+          <span style="font-size:12px;font-weight:700;color:var(--azul-med)">Aprendizado: </span>
+          <span style="font-size:12px;color:var(--muted)">Ambientes sem documentação são bombas-relógio. Depois desse chamado, criei um inventário simples das VMs críticas e seus serviços — economizou horas nas ocorrências seguintes.</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px">
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#HyperV</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#WindowsServer</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#ServiceDesk</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#Infraestrutura</span>
+        </div>
+      </div>
+
+      <!-- POST 2 -->
+      <div style="border:0.5px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:32px;height:32px;background:#FEF3C7;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="ti ti-server" style="color:#B45309;font-size:17px"></i>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:var(--text)">VMware ESXi corrompido em produção — reinstalação completa sem perder dados</div>
+        </div>
+        <p style="font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:10px">Um dos cenários mais temidos: o hypervisor principal parou de responder. Boot via pendrive com imagem ESXi 6.0, reinstalação limpa preservando o datastore original, remontagem das VMs registrando os arquivos <code style="background:var(--bg);padding:1px 5px;border-radius:4px;font-size:11px">.vmdk</code> existentes e validação de cada VM antes de liberar para produção.</p>
+        <div style="background:var(--azul-lt);border-left:3px solid var(--azul-med);padding:8px 12px;border-radius:0 6px 6px 0">
+          <span style="font-size:12px;font-weight:700;color:var(--azul-med)">Aprendizado: </span>
+          <span style="font-size:12px;color:var(--muted)">Os dados estavam intactos no datastore — o hypervisor era o problema, não os discos. Saber separar onde está o problema poupa tempo e evita decisões erradas sob pressão.</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px">
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#VMware</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#ESXi</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#Virtualização</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#Recuperação</span>
+        </div>
+      </div>
+
+      <!-- POST 3 -->
+      <div style="border:0.5px solid var(--border);border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+          <div style="width:32px;height:32px;background:#DCFCE7;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <i class="ti ti-clipboard-list" style="color:#16A34A;font-size:17px"></i>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:var(--text)">O chamado que se repete todo mês — e como parei de resolver na raça</div>
+        </div>
+        <p style="font-size:12.5px;color:var(--muted);line-height:1.7;margin-bottom:10px">Todo início de mês: usuários sem acesso após senha expirada, bloqueio no Active Directory, aplicativo que "parava do nada." Sempre resolvido. Sempre do zero. Comecei a documentar cada ocorrência com três campos: <strong style="color:var(--text)">sintoma</strong>, <strong style="color:var(--text)">causa raiz</strong> e <strong style="color:var(--text)">resolução passo a passo</strong>. Em três meses, a equipe resolvia 80% desses chamados em menos de cinco minutos.</p>
+        <div style="background:var(--azul-lt);border-left:3px solid var(--azul-med);padding:8px 12px;border-radius:0 6px 6px 0">
+          <span style="font-size:12px;font-weight:700;color:var(--azul-med)">Aprendizado: </span>
+          <span style="font-size:12px;color:var(--muted)">Suporte de qualidade não é só resolver rápido — é evitar que o problema volte. Documentação não é burocracia, é a diferença entre apagar incêndio e instalar o detector de fumaça.</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:10px">
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#ITIL</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#ActiveDirectory</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#GestãoDeIncidentes</span>
+          <span style="font-size:11px;background:var(--bg);color:var(--muted);padding:2px 8px;border-radius:20px;border:0.5px solid var(--border)">#ServiceDesk</span>
+        </div>
+      </div>
+
+    </div>
+
     <a class="cta" href="https://wa.me/5511976399233?text=Olá+Ederson,+vi+seu+portfólio+e+gostaria+de+conversar+sobre+uma+oportunidade+em+TI" target="_blank">
       <div class="cta-text">
         <strong>Vamos conversar?</strong>
